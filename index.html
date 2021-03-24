@@ -8,7 +8,7 @@
 <form>
    <p>Your Birthday?</p>
    <p> <input id="birthday1" type="date" ></p>
-   <p>Friends birthday (leave blank to compare with "The Roshan")</p>
+   <p>Your older buddies birthday (leave blank to compare with "The Roshan")</p>
    <p> <input id="birthday2" type="date"></p>
    <button type="button" id="calculate">Calculate!</button>
    <span id="Difference"> xx.00</span>
@@ -45,22 +45,37 @@
   var Age1 = Math.abs(Today - BirthDay1)/(1000*3600*24)
   var Age2 = Math.abs(Today - BirthDay2)/(1000*3600*24)
   var DayDiff = Math.abs(Age1 - Age2);
+  if(Age1>Age2)
+    {
+        document.getElementById("Difference").innerHTML = "<br> You are older than you buddy by<br>"
+               + DayDiff + " Days. You are on the receiving end :-). <br>" 
+               + "enter a date lower than your buddies to continue <br> ";
+        return;
+    }
+
   
-  var EFactor = DayDiff/(Age2);
-  var WFactor = 
+  var EFactor = 1- (Age1/(Age2));
+  EFactor = Math.round (EFactor*100)/100;
+  var WFactor = 1 - (Math.floor(Age1/3650)/Math.floor(Age2/3650));
+  WFactor = Math.round (WFactor*100)/100;
+  var Mpain = Math.sqrt(EFactor*EFactor + WFactor*WFactor);
+  Mpain = Math.round (Mpain*100)/100;
+  var AHurt = Math.atan(WFactor/EFactor);
+  AHurt = AHurt *180/3.14159;
+  AHurt = Math.round (AHurt*100)/100;
   console.log(BirthDay1);
   console.log(BirthDay2);
   console.log(DayDiff);
+  console.log(EFactor);
+  console.log(WFactor);
 
 
   
   //document.getElementById("Difference").style.display = "block";
-  document.getElementById("Difference").innerHTML = "<br>Total number of days between dates  <br>"
-               + BirthDay1 + "<br> and <br>" 
-               + BirthDay2 + " is: <br> " 
-               + DayDiff;
-  //document.getElementById("tip").innerHTML = "";
-
+  document.getElementById("Difference").innerHTML = "<br>Analysis complete...<br><br>"
+               +"<br>Roshan Factor: " + EFactor + " + i*" + WFactor + "<br>" 
+               +"<br>Magnitude of Pain: " + Mpain*100 + " Centi Roshans <br>" 
+               +"<br>Angle of Hurt: " + AHurt + " Degrees <br>" ;
  }
 //Register call back
 document.getElementById("calculate").onclick = function() {
