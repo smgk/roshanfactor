@@ -5,7 +5,7 @@
 <p>Is your Older buddy sour when he hits his birthday?<br> 
     Do you struggle to measure his pain as he ages past a milestone
      while you continue to enjoy a percieved youth? <br>
- We will quantify the Magnitude of pain for you... for more fun...</p>
+ We will quantify the Magnitude of his pain for you... to exploit for more fun... :-) </p>
 <form>
    <p> Enter Your Birthday?</p>
    <p> <input id="birthday1" type="date" ></p>
@@ -61,14 +61,15 @@
 
   
   var EFactor = 1- (Age1/(Age2));
-  EFactor = Math.round (EFactor*100)/100;
-  var WFactor = 1 - (Math.floor(Age1/3650)/Math.floor(Age2/3650));
-  WFactor = Math.round (WFactor*100)/100;
+  EFactor = Math.round (EFactor*100)/100; // round to 2 decimals, there should be a method for this.
+  var WFactor = 1 - (Math.floor(Age1/3652.5)/Math.floor(Age2/3652.5)) + (Math.floor(Age1/365.25)/Math.floor(Age2/365.25));
+  WFactor = Math.round (WFactor*100)/100; // round to 2 decimals, there should be a method for this.
   var Mpain = Math.sqrt(EFactor*EFactor + WFactor*WFactor);
-  Mpain = Math.round (Mpain*100)/100;
+  Mpain = Math.round (Mpain*100)/100; // round to 2 decimals, there should be a method for this.
   var AHurt = Math.atan(WFactor/EFactor);
-  AHurt = AHurt *180/3.14159;
-  AHurt = Math.round (AHurt*100)/100;
+  AHurt = AHurt *180/3.14159; //convert to degrees.
+  AHurt = Math.round (AHurt*100)/100; // round to 2 decimals, there should be a method for this.
+      
   console.log(BirthDay1);
   console.log(BirthDay2);
   console.log(DayDiff);
