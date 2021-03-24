@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>The Roshan Factor</h1>
-<p>Is your Older buddy sour when he hits his birthday. 
+<h1>The Roshan Factor!</h1>
+<p>Is your Older buddy sour when he hits his birthday?<br> 
     Do you struggle to quantify the magnitude of his pain as he ages past a milestone
-     while you enjoy your percieved youth? We quantify it for you...</p>
+     while you continue to enjoy a percieved youth? <br>
+ We will quantify his magnitude of pain for you... for more fun...</p>
 <form>
-   <p>Your Birthday?</p>
+   <p> Enter Your Birthday?</p>
    <p> <input id="birthday1" type="date" ></p>
-   <p>Your older buddies birthday (leave blank to compare with "The Roshan")</p>
+   <p>Enter Your older buddies birthday (leave blank to compare with "The Roshan")</p>
    <p> <input id="birthday2" type="date"></p>
    <button type="button" id="calculate">Calculate!</button>
-   <span id="Difference"> xx.00</span>
+   <span id="Difference"> </span>
+    <span id="StatusBar"> </span>
 </form>
 
 <script type="text/javascript">
@@ -47,10 +49,12 @@
   var DayDiff = Math.abs(Age1 - Age2);
   if(Age1>Age2)
     {
-        document.getElementById("Difference").innerHTML = "<br> You are older than you buddy <br> by "
+        document.getElementById("StatusBar").innerHTML = "<br> You are older than you buddy <br> by "
                + DayDiff + " Days. Joke is on you :-). <br>" 
-               + "enter a date lower than your buddies for analysis <br> ";
-        return;
+               + "Swapping Dates for analysis... <br> ";
+        var temp = Age1;
+        Age1 = Age2;
+        Age2 = temp;
     }
 
   
@@ -73,6 +77,7 @@
   
   //document.getElementById("Difference").style.display = "block";
   document.getElementById("Difference").innerHTML = "<br>Analysis complete...<br><br>"
+               +"<br>Roshan Factor: Steady-Factor + i * Wounding Factor <br>" 
                +"<br>Roshan Factor: " + EFactor + " + i*" + WFactor + "<br>" 
                +"<br>Magnitude of Pain: " + Mpain*100 + " Centi Roshans <br>" 
                +"<br>Angle of Hurt: " + AHurt + " Degrees <br>" ;
