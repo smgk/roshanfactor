@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Roshan Factor</h1>
+<p>Is your Older buddy sour when he hits his birthday. 
+    Do you struggle to quantify the magnitude of his pain as he ages past a milestone
+     while you enjoy your percieved youth? We quantify it for you...</p>
+<form>
+   <p>Your Birthday?</p>
+   <p> <input id="birthday1" type="date" ></p>
+   <p>Friends birthday (leave blank to compare with "The Roshan")</p>
+   <p> <input id="birthday2" type="date"></p>
+   <button type="button" id="calculate">Calculate!</button>
+   <span id="Difference"> xx.00</span>
+</form>
+
+<script type="text/javascript">
+ function calculateRoshan()
+  {
+  var BirthDay1 = new Date();
+  var BirthDay2 = new Date();
+  var Epoch = new Date();
+  var Today = new Date();
+ 
+  Today = Date.now();
+  Epoch = Date.parse("1980-1-1");// When "The Roshan" was born and began the new era.
+  
+  BirthDay1 = Date.parse(document.getElementById("birthday1").value);
+  BirthDay2 = Date.parse(document.getElementById("birthday2").value);
+    
+  console.log(document.getElementById("birthday1").value);
+  console.log(document.getElementById("birthday2").value);
+
+  //validate input
+  if (isNaN(BirthDay1))
+  {
+    document.getElementById("Difference").innerHTML = "<br>Select Your Birthday  <br>";
+    return;
+  }
+  if ( isNaN(BirthDay2))
+  {
+      BirthDay2 = Epoch; // we are calculating absolute Roshans 
+  }
+  //calculate difference in age in days
+  var Age1 = Math.abs(Today - BirthDay1)/(1000*3600*24)
+  var Age2 = Math.abs(Today - BirthDay2)/(1000*3600*24)
+  var DayDiff = Math.abs(Age1 - Age2);
+  
+  var EFactor = DayDiff/(Age2);
+  var WFactor = 
+  console.log(BirthDay1);
+  console.log(BirthDay2);
+  console.log(DayDiff);
+
+
+  
+  //document.getElementById("Difference").style.display = "block";
+  document.getElementById("Difference").innerHTML = "<br>Total number of days between dates  <br>"
+               + BirthDay1 + "<br> and <br>" 
+               + BirthDay2 + " is: <br> " 
+               + DayDiff;
+  //document.getElementById("tip").innerHTML = "";
+
+ }
+//Register call back
+document.getElementById("calculate").onclick = function() {
+  calculateRoshan();
+
+};
+</script>
+
+
+</body>
+</html>
