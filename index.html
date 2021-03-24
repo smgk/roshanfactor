@@ -62,7 +62,7 @@
   
   var EFactor = 1- (Age1/(Age2));
   EFactor = Math.round (EFactor*100)/100; // round to 2 decimals, there should be a method for this.
-  var WFactor = 1 - (Math.floor(Age1/3652.5)/Math.floor(Age2/3652.5)) + (Math.floor(Age1/365.25)/Math.floor(Age2/365.25));
+  var WFactor = 1 - (Math.floor(Age1/3652.5)/Math.floor(Age2/3652.5) + Math.floor(Age1/365.25)/Math.floor(Age2/365.25))/2;
   WFactor = Math.round (WFactor*100)/100; // round to 2 decimals, there should be a method for this.
   var Mpain = Math.sqrt(EFactor*EFactor + WFactor*WFactor);
   Mpain = Math.round (Mpain*100)/100; // round to 2 decimals, there should be a method for this.
