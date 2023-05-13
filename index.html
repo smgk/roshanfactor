@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
 <body>
-    <h1>Calculate Age Difference</h1>
+    <h1>The Roshan Factor</h1>
+    <h2>How old does your buddy feel on his birthday? Your essential dose of schadenfreud</h2>
 
-    <label for="birthdate1">Birth Date 1:</label>
+    <label for="birthdate1">Your birthday:</label>
     <input type="date" id="birthdate1" name="birthdate1">
 
-    <label for="birthdate2">Birth Date 2:</label>
+    <label for="birthdate2">Your buddy's birth day:</label>
     <input type="date" id="birthdate2" name="birthdate2">
 
-    <label for="currentDate">Current Date (optional):</label>
+    <label for="currentDate">Today (optional):</label>
     <input type="date" id="currentDate" name="currentDate">
 
     <button onclick="calculateDifference()">Calculate</button>
@@ -40,7 +73,7 @@
                 roshanFactor += 5;
             }
 
-            document.getElementById('output').innerHTML = "Actual age difference: " + ageDifference + ", Roshan factor: " + roshanFactor;
+            document.getElementById('output').innerHTML = "Actual age difference is " + ageDifference + " years, but your buddy feels " + roshanFactor + " years older.";
         }
 
         function calculateAge(birthdate, currentDate) {
