@@ -50,10 +50,15 @@
     <h2 id="output"></h2>
 
     <script>
+        function getParameterByName(name) {
+            let url = new URL(window.location.href);
+            return url.searchParams.get(name);
+        }
+
         function calculateDifference() {
-            let birthdate1 = new Date(document.getElementById('birthdate1').value);
-            let birthdate2 = new Date(document.getElementById('birthdate2').value);
-            let currentDateInput = document.getElementById('currentDate').value;
+            let birthdate1 = new Date(getParameterByName('birthdate1') || document.getElementById('birthdate1').value);
+            let birthdate2 = new Date(getParameterByName('birthdate2') || document.getElementById('birthdate2').value);
+            let currentDateInput = getParameterByName('currentDate') || document.getElementById('currentDate').value;
             let currentDate = currentDateInput ? new Date(currentDateInput) : new Date();
 
             let age1 = calculateAge(birthdate1, currentDate);
@@ -83,6 +88,13 @@
                 age--;
             }
             return age;
+        }
+
+        // Automatically calculate if URL parameters are present
+        window.onload = function() {
+            if (getParameterByName('birthdate1') || getParameterByName('birthdate2') || getParameterByName('currentDate')) {
+                calculateDifference();
+            }
         }
     </script>
 
