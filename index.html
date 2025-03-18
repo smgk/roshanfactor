@@ -3,7 +3,7 @@
 <head>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             max-width: 500px;
             margin: auto;
         }
@@ -13,6 +13,14 @@
         label {
             display: block;
             margin-top: 20px;
+            text-align: center;
+        }
+        input[type="date"] {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
         }
         button {
             margin-top: 20px;
@@ -22,6 +30,8 @@
             color: white;
             border: none;
             cursor: pointer;
+            display: block;
+            margin: 20px auto;
         }
         button:hover {
             background-color: #45a049;
@@ -92,7 +102,21 @@
 
         // Automatically calculate if URL parameters are present
         window.onload = function() {
-            if (getParameterByName('birthdate1') || getParameterByName('birthdate2') || getParameterByName('currentDate')) {
+            let birthdate1 = getParameterByName('birthdate1');
+            let birthdate2 = getParameterByName('birthdate2');
+            let currentDate = getParameterByName('currentDate');
+
+            if (birthdate1) {
+                document.getElementById('birthdate1').value = birthdate1;
+            }
+            if (birthdate2) {
+                document.getElementById('birthdate2').value = birthdate2;
+            }
+            if (currentDate) {
+                document.getElementById('currentDate').value = currentDate;
+            }
+
+            if (birthdate1 || birthdate2 || currentDate) {
                 calculateDifference();
             }
         }
