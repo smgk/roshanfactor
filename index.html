@@ -3,7 +3,7 @@
 <head>
     <style>
         body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-family: 'Comic Sans MS', sans-serif;
             max-width: 500px;
             margin: auto;
         }
@@ -44,7 +44,7 @@
 </head>
 <body>
     <h1>The Roshan Factor</h1>
-    <h2>How old does your buddy feel on his birthday? Is he hitting a new decade? Tipping over to late 40s? Get is your essential dose of schadenfreude</h2>
+    <h2>How old does your buddy feel on his birthday? Is he hitting a new decade? Tipping over to late 40s? Get your essential dose of schadenfreude</h2>
 
     <label for="birthdate1">Your Birthday:</label>
     <input type="date" id="birthdate1" name="birthdate1">
@@ -52,7 +52,7 @@
     <label for="birthdate2">Your buddy's birth day:</label>
     <input type="date" id="birthdate2" name="birthdate2">
 
-    <label for="currentDate">Day of reconning (optional, leave blank to calculate relative to today):</label>
+    <label for="currentDate">The day of reckoning (optional, see how he feels right after birthday):</label>
     <input type="date" id="currentDate" name="currentDate">
 
     <button onclick="calculateDifference()">Calculate</button>
@@ -69,7 +69,7 @@
             let birthdate1 = new Date(document.getElementById('birthdate1').value);
             let birthdate2 = new Date(document.getElementById('birthdate2').value);
             let currentDateInput = document.getElementById('currentDate').value;
-            let currentDate = currentDateInput ? new Date(currentDateInput) : new Date();
+            let currentDate = currentDateInput ? new Date(currentDateInput) : new Date(birthdate1+1);
 
             let age1 = calculateAge(birthdate1, currentDate);
             let age2 = calculateAge(birthdate2, currentDate);
